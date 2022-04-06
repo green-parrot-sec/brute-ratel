@@ -1,0 +1,15 @@
+version: "3.5"
+services: 
+    app:
+        build: 
+            context: .
+            dockerfile: Dockerfile
+        container_name: brc4
+        stdin_open: true # docker run -i
+        tty: true        # docker run -t
+        restart: unless-stopped
+
+        ports:  
+            - 8433:8433
+        volumes: 
+            - ./server_confs:/app/server_confs
